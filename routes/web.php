@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\MenuController;
-use App\Http\Controllers\TableController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\SalesReportController;
-use App\Http\Controllers\SalesProgramController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\SalesProgramController;
+use App\Http\Controllers\SalesReportController;
+use App\Http\Controllers\TableController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 // Authenticated Routes
@@ -40,8 +40,8 @@ Route::middleware('auth')->group(function () {
 
     // Waiters-only routes
     Route::middleware('role:waiters')->group(function () {
-        // Route::resource('tables', TableController::class); // Table management
-        // Route::resource('reservations', ReservationController::class); // Reservations
+        Route::resource('tables', TableController::class); // Table management
+        Route::resource('reservations', ReservationController::class); // Reservations
         // Route::resource('orders', OrderController::class); // Orders
     });
 

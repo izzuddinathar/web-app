@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Foundation\Auth\User as Authenticatable; // Correct parent class for authentication
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory; // Correct parent class for authentication
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
@@ -11,8 +11,11 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     protected $table = 'users'; // Specify the table name if it doesn't follow Laravel's convention
+
     protected $primaryKey = 'user_id'; // Set the primary key to user_id
+
     public $incrementing = true; // Primary key is auto-incrementing
+
     protected $keyType = 'int'; // Primary key type
 
     // Fields that can be mass assigned

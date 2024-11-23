@@ -12,8 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tables', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('table_id'); // Primary Key
+            $table->integer('nomor_meja')->unique(); // Unique table number
+            $table->integer('kapasitas'); // Capacity
+            $table->enum('status', ['dipesan', 'tersedia', 'terisi'])->default('tersedia'); // Status with default value
+            $table->timestamps(); // Created and updated timestamps
         });
     }
 

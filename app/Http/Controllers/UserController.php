@@ -17,7 +17,7 @@ class UserController extends Controller
         if (Auth::user()->role !== 'admin') {
             abort(403, 'Unauthorized action.');
         }
-        
+
         $users = User::all();
 
         return view('users.index', compact('users'));
@@ -31,6 +31,7 @@ class UserController extends Controller
         if (Auth::user()->role !== 'admin') {
             abort(403, 'Unauthorized action.');
         }
+
         return view('users.create');
     }
 

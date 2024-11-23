@@ -21,6 +21,20 @@
             background-color: #d6d6d6; /* Selected background color */
             color: #000; /* Selected text color */
         }
+
+        .container {
+            margin-top: 100px;
+        }
+
+        h1.display-4 {
+            font-size: 6rem;
+            font-weight: bold;
+        }
+
+        .btn-primary {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+        }
     </style>
 </head>
 <body>

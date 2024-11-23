@@ -19,6 +19,7 @@ class MenuController extends Controller
         }
 
         $menus = Menu::all();
+
         return view('menus.index', compact('menus'));
     }
 
@@ -38,7 +39,7 @@ class MenuController extends Controller
         if (Auth::user()->role !== 'admin') {
             abort(403, 'Unauthorized action.');
         }
-        
+
         $request->validate([
             'nama_menu' => 'required|string|max:255',
             'deskripsi' => 'nullable|string',
@@ -125,9 +126,9 @@ class MenuController extends Controller
         if (Auth::user()->role !== 'admin') {
             abort(403, 'Unauthorized action.');
         }
-        
+
         if ($menu->gambar) {
-            Storage::delete('public/' . $menu->gambar);
+            Storage::delete('public/'.$menu->gambar);
         }
         $menu->delete();
 

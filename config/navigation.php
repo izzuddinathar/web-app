@@ -12,11 +12,11 @@ return [
             // 'Pembayaran' => 'payments.index',
             // 'Inventory' => 'inventory.index',
         ],
-        // 'waiters' => [
-        //     'Meja' => 'tables.index',
-        //     'Reservasi' => 'reservations.index',
-        //     'Pesanan' => 'orders.index',
-        // ],
+        'waiters' => [
+            'Meja' => 'tables.index',
+            'Reservasi' => 'reservations.index',
+            // 'Pesanan' => 'orders.index',
+        ],
         // 'cook' => [
         //     'Pesanan' => 'orders.index',
         // ],
