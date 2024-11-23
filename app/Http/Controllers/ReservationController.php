@@ -14,7 +14,7 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->role !== 'admin') {
+        if (! in_array(Auth::user()->role, ['waiters'])) {
             abort(403, 'Unauthorized action.');
         }
 
@@ -28,7 +28,7 @@ class ReservationController extends Controller
      */
     public function create()
     {
-        if (Auth::user()->role !== 'admin') {
+        if (! in_array(Auth::user()->role, ['waiters'])) {
             abort(403, 'Unauthorized action.');
         }
 
@@ -42,7 +42,7 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        if (Auth::user()->role !== 'admin') {
+        if (! in_array(Auth::user()->role, ['waiters'])) {
             abort(403, 'Unauthorized action.');
         }
 
@@ -74,7 +74,7 @@ class ReservationController extends Controller
      */
     public function edit(Reservation $reservation)
     {
-        if (Auth::user()->role !== 'admin') {
+        if (! in_array(Auth::user()->role, ['waiters'])) {
             abort(403, 'Unauthorized action.');
         }
 
@@ -88,7 +88,7 @@ class ReservationController extends Controller
      */
     public function update(Request $request, Reservation $reservation)
     {
-        if (Auth::user()->role !== 'admin') {
+        if (! in_array(Auth::user()->role, ['waiters'])) {
             abort(403, 'Unauthorized action.');
         }
 
@@ -121,7 +121,7 @@ class ReservationController extends Controller
      */
     public function destroy(Reservation $reservation)
     {
-        if (Auth::user()->role !== 'admin') {
+        if (! in_array(Auth::user()->role, ['waiters'])) {
             abort(403, 'Unauthorized action.');
         }
 

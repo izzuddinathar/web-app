@@ -13,7 +13,7 @@ class TableController extends Controller
      */
     public function index()
     {
-        if (Auth::user()->role !== 'admin') {
+        if (! in_array(Auth::user()->role, ['waiters', 'cleaner'])) {
             abort(403, 'Unauthorized action.');
         }
 
@@ -27,7 +27,7 @@ class TableController extends Controller
      */
     public function create()
     {
-        if (Auth::user()->role !== 'admin') {
+        if (! in_array(Auth::user()->role, ['waiters', 'cleaner'])) {
             abort(403, 'Unauthorized action.');
         }
 
@@ -39,7 +39,7 @@ class TableController extends Controller
      */
     public function store(Request $request)
     {
-        if (Auth::user()->role !== 'admin') {
+        if (! in_array(Auth::user()->role, ['waiters', 'cleaner'])) {
             abort(403, 'Unauthorized action.');
         }
 
@@ -67,7 +67,7 @@ class TableController extends Controller
      */
     public function edit(Table $table)
     {
-        if (Auth::user()->role !== 'admin') {
+        if (! in_array(Auth::user()->role, ['waiters', 'cleaner'])) {
             abort(403, 'Unauthorized action.');
         }
 
@@ -79,7 +79,7 @@ class TableController extends Controller
      */
     public function update(Request $request, Table $table)
     {
-        if (Auth::user()->role !== 'admin') {
+        if (! in_array(Auth::user()->role, ['waiters', 'cleaner'])) {
             abort(403, 'Unauthorized action.');
         }
 
@@ -99,7 +99,7 @@ class TableController extends Controller
      */
     public function destroy(Table $table)
     {
-        if (Auth::user()->role !== 'admin') {
+        if (! in_array(Auth::user()->role, ['waiters', 'cleaner'])) {
             abort(403, 'Unauthorized action.');
         }
 
