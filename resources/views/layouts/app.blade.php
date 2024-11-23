@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Default Title')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Navigation link styles */
+        .nav-link {
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+    
+        .nav-link:hover {
+            background-color: #f0f0f0;
+            color: #000;
+        }
+    
+        .nav-item.active > .nav-link {
+            background-color: #d6d6d6; /* Selected background color */
+            color: #000; /* Selected text color */
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -15,9 +32,21 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
+                    {{-- <li class="nav-item">
                         <a class="nav-link" href="{{ route('users.index') }}">Users</a>
-                    </li>
+                    </li> --}}
+                    @php
+                    $role = Auth::user()->role;
+                    $menuConfig = config('navigation.menus');
+                    // $menus = array_merge($menuConfig['shared'], $menuConfig[$role] ?? []);
+                    $menus = $menuConfig[$role];
+                    @endphp
+
+                    @foreach($menus as $label => $route)
+                        <li class="nav-item {{ request()->routeIs($route) ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route($route) }}">{{ $label }}</a>
+                        </li>
+                    @endforeach
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
