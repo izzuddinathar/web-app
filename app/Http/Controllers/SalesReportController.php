@@ -17,8 +17,9 @@ class SalesReportController extends Controller
         if (! in_array(Auth::user()->role, ['owner'])) {
             abort(403, 'Unauthorized action.');
         }
-        
+
         $reports = SalesReport::with('menu')->get();
+
         return view('sales_reports.index', compact('reports'));
     }
 
@@ -32,6 +33,7 @@ class SalesReportController extends Controller
         }
 
         $menus = Menu::all();
+
         return view('sales_reports.create', compact('menus'));
     }
 
@@ -74,6 +76,7 @@ class SalesReportController extends Controller
         }
 
         $menus = Menu::all();
+
         return view('sales_reports.edit', compact('salesReport', 'menus'));
     }
 
@@ -106,7 +109,7 @@ class SalesReportController extends Controller
         if (! in_array(Auth::user()->role, ['owner'])) {
             abort(403, 'Unauthorized action.');
         }
-        
+
         $salesReport->delete();
 
         return redirect()->route('sales-reports.index')->with('success', 'Sales report deleted successfully.');

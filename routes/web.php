@@ -1,15 +1,15 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MenuController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\TableController;
-use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ReservationController;
-use App\Http\Controllers\SalesReportController;
 use App\Http\Controllers\SalesProgramController;
+use App\Http\Controllers\SalesReportController;
+use App\Http\Controllers\TableController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Route;
 
 // Authenticated Routes
 Route::middleware('auth')->group(function () {

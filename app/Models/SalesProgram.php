@@ -10,6 +10,7 @@ class SalesProgram extends Model
     use HasFactory;
 
     protected $table = 'sales_programs';
+
     protected $primaryKey = 'program_id';
 
     protected $fillable = [
@@ -26,4 +27,3 @@ class SalesProgram extends Model
         return $this->belongsTo(Menu::class, 'menu_id', 'menu_id');
     }
 }
-

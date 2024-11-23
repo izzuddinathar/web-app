@@ -19,6 +19,7 @@ class SalesProgramController extends Controller
         }
 
         $programs = SalesProgram::with('menu')->get();
+
         return view('sales_programs.index', compact('programs'));
     }
 
@@ -32,6 +33,7 @@ class SalesProgramController extends Controller
         }
 
         $menus = Menu::all();
+
         return view('sales_programs.create', compact('menus'));
     }
 
@@ -76,6 +78,7 @@ class SalesProgramController extends Controller
         }
 
         $menus = Menu::all();
+
         return view('sales_programs.edit', compact('salesProgram', 'menus'));
     }
 
@@ -110,7 +113,7 @@ class SalesProgramController extends Controller
         if (! in_array(Auth::user()->role, ['owner'])) {
             abort(403, 'Unauthorized action.');
         }
-        
+
         $salesProgram->delete();
 
         return redirect()->route('sales-programs.index')->with('success', 'Sales program deleted successfully.');

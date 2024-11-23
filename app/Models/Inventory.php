@@ -10,6 +10,7 @@ class Inventory extends Model
     use HasFactory;
 
     protected $table = 'inventories';
+
     protected $primaryKey = 'inventory_id';
 
     protected $fillable = [
@@ -19,4 +20,3 @@ class Inventory extends Model
         'supplier',
     ];
 }
-

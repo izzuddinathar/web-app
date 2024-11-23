@@ -16,8 +16,9 @@ class InventoryController extends Controller
         if (! in_array(Auth::user()->role, ['admin'])) {
             abort(403, 'Unauthorized action.');
         }
-        
+
         $inventories = Inventory::all();
+
         return view('inventories.index', compact('inventories'));
     }
 
@@ -103,7 +104,7 @@ class InventoryController extends Controller
         if (! in_array(Auth::user()->role, ['admin'])) {
             abort(403, 'Unauthorized action.');
         }
-        
+
         $inventory->delete();
 
         return redirect()->route('inventories.index')->with('success', 'Inventory item deleted successfully.');

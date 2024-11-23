@@ -10,6 +10,7 @@ class SalesReport extends Model
     use HasFactory;
 
     protected $table = 'sales_reports';
+
     protected $primaryKey = 'report_id';
 
     protected $fillable = [
@@ -24,4 +25,3 @@ class SalesReport extends Model
         return $this->belongsTo(Menu::class, 'menu_id', 'menu_id');
     }
 }
-

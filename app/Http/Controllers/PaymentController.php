@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
-use App\Models\Table;
 use App\Models\Payment;
+use App\Models\Table;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,6 +20,7 @@ class PaymentController extends Controller
         }
 
         $payments = Payment::with(['table', 'menu'])->get();
+
         return view('payments.index', compact('payments'));
     }
 
@@ -31,9 +32,10 @@ class PaymentController extends Controller
         if (! in_array(Auth::user()->role, ['admin'])) {
             abort(403, 'Unauthorized action.');
         }
-        
+
         $tables = Table::all();
         $menus = Menu::all();
+
         return view('payments.create', compact('tables', 'menus'));
     }
 
@@ -78,6 +80,7 @@ class PaymentController extends Controller
 
         $tables = Table::all();
         $menus = Menu::all();
+
         return view('payments.edit', compact('payment', 'tables', 'menus'));
     }
 
@@ -111,7 +114,7 @@ class PaymentController extends Controller
         if (! in_array(Auth::user()->role, ['admin'])) {
             abort(403, 'Unauthorized action.');
         }
-        
+
         $payment->delete();
 
         return redirect()->route('payments.index')->with('success', 'Payment deleted successfully.');
